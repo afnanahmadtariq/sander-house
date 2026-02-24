@@ -13,10 +13,10 @@ import {
 const PROPERTIES = [
   { id: 1, img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800', name: 'Heritage Apartment of Modern Living', loc: 'Downtown, City', price: '$850,000', type: 'Apartment', beds: 4, baths: 3, sqft: '2,400' },
   { id: 2, img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800', name: 'Modern Luxury Villa', loc: 'Beverly Hills, CA', price: '$2,450,000', type: 'Villa', beds: 5, baths: 4, sqft: '4,200' },
-  { id: 3, img: 'https://images.unsplash.com/photo-1600607687931-cebf5825cbef?w=800', name: 'Classic European Residence', loc: 'Westside, New York', price: '$1,200,000', type: 'House', beds: 3, baths: 2, sqft: '2,800' },
+  { id: 3, img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800', name: 'Classic European Residence', loc: 'Westside, New York', price: '$1,200,000', type: 'House', beds: 3, baths: 2, sqft: '2,800' },
   { id: 4, img: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800', name: 'Heritage Cottage', loc: 'Lakeside, WA', price: '$650,000', type: 'House', beds: 3, baths: 2, sqft: '1,800' },
-  { id: 5, img: 'https://images.unsplash.com/photo-1600585154526-990dced4ea0d?w=800', name: 'Contemporary Beach House', loc: 'Malibu, CA', price: '$4,500,000', type: 'Villa', beds: 6, baths: 5, sqft: '5,600' },
-  { id: 6, img: 'https://images.unsplash.com/photo-1600607687644-aac4c15cecb1?w=800', name: 'Classic Brick Estate', loc: 'Greenwich, CT', price: '$3,100,000', type: 'Mansion', beds: 7, baths: 6, sqft: '8,200' },
+  { id: 5, img: 'https://images.unsplash.com/photo-1600566753151-384129cf4e3e?w=800', name: 'Contemporary Beach House', loc: 'Malibu, CA', price: '$4,500,000', type: 'Villa', beds: 6, baths: 5, sqft: '5,600' },
+  { id: 6, img: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800', name: 'Classic Brick Estate', loc: 'Greenwich, CT', price: '$3,100,000', type: 'Mansion', beds: 7, baths: 6, sqft: '8,200' },
 ];
 
 const TYPES = ['Any Type', 'House', 'Apartment', 'Villa', 'Mansion', 'Penthouse', 'Duplex'];
@@ -271,7 +271,7 @@ export default function Home() {
           </Link>
           <Link href="/properties" className="project-card project-card-faded">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="https://images.unsplash.com/photo-1600607687931-cebf5825cbef?w=1200" alt="Willow Creek Estate" className="project-img" />
+            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200" alt="Willow Creek Estate" className="project-img" />
             <div className="project-card-content">
               <h3 className="project-title">Willow Creek Estate</h3>
             </div>
@@ -291,10 +291,10 @@ export default function Home() {
 
         <div className="agents-grid">
           {[
-            { img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop', name: 'Jane Williams', role: 'Real Estate Broker' },
-            { img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop', name: 'Robert Fox', role: 'Real Estate Agent' },
-            { img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=500&fit=crop', name: 'Albert Flores', role: 'Sales Agent' },
-            { img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop', name: 'Guy Hawkins', role: 'Real Estate Broker' }
+            { img: '/agents/jane.png', name: 'Jane Williams', role: 'Real Estate Broker' },
+            { img: '/agents/robert.png', name: 'Robert Fox', role: 'Real Estate Agent' },
+            { img: '/agents/albert.png', name: 'Albert Flores', role: 'Sales Agent' },
+            { img: '/agents/guy.png', name: 'Guy Hawkins', role: 'Real Estate Broker' }
           ].map((agent, i) => (
             <div className="agent-card" key={i}>
               <div className="agent-img-wrap">
