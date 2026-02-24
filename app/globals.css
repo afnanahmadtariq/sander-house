@@ -189,7 +189,6 @@ button {
 
 .btn-book:hover {
   background-color: #f0f0f0;
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -213,7 +212,6 @@ button {
 
 .btn-primary:hover {
   background-color: #f0f0f0;
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -232,7 +230,6 @@ button {
 
 .btn-dark:hover {
   background-color: #333;
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -513,7 +510,6 @@ button {
   background: var(--primary-color);
   color: var(--white);
   border-color: var(--primary-color);
-  transform: translateY(-2px);
 }
 
 /* ========================================

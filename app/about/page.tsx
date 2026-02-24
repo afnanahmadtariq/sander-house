@@ -144,19 +144,19 @@ export default function AboutPage() {
                     </div>
                 </div>
                 <div className="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4><Link href="/quick-links">Quick Links</Link></h4>
                     <div className="footer-links">
-                        <a href="#">Terms of Use</a>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Pricing</a>
+                        <Link href="/terms">Terms of Use</Link>
+                        <Link href="/privacy">Privacy Policy</Link>
+                        <Link href="/pricing">Pricing</Link>
                     </div>
                 </div>
                 <div className="footer-section">
-                    <h4>Support</h4>
+                    <h4><Link href="/support">Support</Link></h4>
                     <div className="footer-links">
-                        <a href="#">Help Center</a>
-                        <a href="#">FAQs</a>
-                        <a href="#">Safety Rules</a>
+                        <Link href="/help">Help Center</Link>
+                        <Link href="/faqs">FAQs</Link>
+                        <Link href="/safety">Safety Rules</Link>
                     </div>
                 </div>
                 <div className="footer-section">
