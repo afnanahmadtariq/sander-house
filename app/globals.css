@@ -1107,6 +1107,7 @@ button {
   justify-content: center;
   animation: fadeIn 0.3s ease;
   padding: 20px;
+  overflow: hidden;
 }
 
 @keyframes fadeIn {

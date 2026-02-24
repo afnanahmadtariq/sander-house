@@ -42,14 +42,14 @@ export default function BookingModal({ isOpen, onClose, onSubmit }: BookingModal
 
     return (
         <div className="modal-overlay" onClick={onClose}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-content" style={{ overflow: 'hidden' }} onClick={(e) => e.stopPropagation()}>
                 <button className="modal-close" onClick={onClose}>
                     <CloseIcon size={20} />
                 </button>
                 <div className="modal-header">
-                    <div className="modal-icon">
+                    {/* <div className="modal-icon">
                         <CalendarIcon size={24} />
-                    </div>
+                    </div> */}
                     <h2>Book a Visit</h2>
                     <p>Schedule a property viewing with one of our expert agents.</p>
                 </div>
