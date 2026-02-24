@@ -3,12 +3,11 @@
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
 import Toast from './components/Toast';
-import BookingModal from './components/BookingModal';
+import Header from './components/Header';
 import {
-  PhoneIcon, SearchIcon, MapPinIcon, BedIcon, BathIcon, AreaIcon,
+  SearchIcon, MapPinIcon, BedIcon, BathIcon, AreaIcon,
   HeartIcon, StarIcon, ArrowRightIcon, QuoteIcon,
-  LinkedInIcon, FacebookIcon, TwitterIcon, InstagramIcon,
-  MenuIcon, CloseIcon
+  LinkedInIcon, FacebookIcon, TwitterIcon, InstagramIcon
 } from './components/Icons';
 
 const PROPERTIES = [
@@ -59,10 +58,8 @@ export default function Home() {
   const [toastVisible, setToastVisible] = useState(false);
   const [toastMsg, setToastMsg] = useState('');
   const [toastType, setToastType] = useState<'success' | 'error'>('success');
-  const [bookingOpen, setBookingOpen] = useState(false);
   const [subscribeEmail, setSubscribeEmail] = useState('');
   const [isSubscribing, setIsSubscribing] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const showToast = useCallback((msg: string, type: 'success' | 'error' = 'success') => {
     setToastMsg(msg);
@@ -107,34 +104,7 @@ export default function Home() {
   return (
     <>
       <Toast message={toastMsg} type={toastType} isVisible={toastVisible} onClose={() => setToastVisible(false)} />
-      <BookingModal
-        isOpen={bookingOpen}
-        onClose={() => setBookingOpen(false)}
-        onSubmit={() => { setBookingOpen(false); showToast('Visit scheduled successfully! Our agent will contact you within 24 hours.'); }}
-      />
-
-      {/* Header */}
-      <header className="header">
-        <Link href="/" className="header-logo">SANDER HOUSE</Link>
-        <nav className={`nav-links ${mobileMenuOpen ? 'nav-open' : ''}`}>
-          <Link href="/" className="nav-active" onClick={() => setMobileMenuOpen(false)}>Home</Link>
-          <Link href="/about" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
-          <Link href="/properties" onClick={() => setMobileMenuOpen(false)}>Properties</Link>
-          <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
-        </nav>
-        <div className="header-contact">
-          <div className="header-phone-wrapper">
-            <div className="phone-icon">
-              <PhoneIcon size={12} />
-            </div>
-            <span>(00) 123 456 789</span>
-          </div>
-          <button className="btn-book" onClick={() => setBookingOpen(true)}>BOOK A VISIT</button>
-        </div>
-        <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
-          {mobileMenuOpen ? <CloseIcon size={24} /> : <MenuIcon size={24} />}
-        </button>
-      </header>
+      <Header activePage="home" variant="default" onBookingSubmit={() => showToast('Visit scheduled successfully! Our agent will contact you within 24 hours.')} />
 
       {/* Hero Section */}
       <section className="hero">

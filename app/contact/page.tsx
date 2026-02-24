@@ -3,8 +3,9 @@
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
 import Toast from '../components/Toast';
+import Header from '../components/Header';
 import {
-    PhoneIcon, MapPinIcon, MailIcon, SendIcon, CloseIcon,
+    MapPinIcon, MailIcon, SendIcon, PhoneIcon,
     LinkedInIcon, FacebookIcon, TwitterIcon, InstagramIcon
 } from '../components/Icons';
 
@@ -43,25 +44,7 @@ export default function ContactPage() {
     return (
         <>
             <Toast message={toastMsg} type={toastType} isVisible={toastVisible} onClose={() => setToastVisible(false)} />
-
-            <header className="header header-dark">
-                <Link href="/" className="header-logo">SANDER HOUSE</Link>
-                <nav className="nav-links">
-                    <Link href="/">Home</Link>
-                    <Link href="/about">About Us</Link>
-                    <Link href="/properties">Properties</Link>
-                    <Link href="/contact" className="nav-active">Contact</Link>
-                </nav>
-                <div className="header-contact">
-                    <div className="header-phone-wrapper" style={{ color: 'var(--text-main)' }}>
-                        <div className="phone-icon">
-                            <PhoneIcon size={12} />
-                        </div>
-                        <span>(00) 123 456 789</span>
-                    </div>
-                    <Link href="/contact" className="btn-dark" style={{ borderRadius: '100px' }}>GET IN TOUCH</Link>
-                </div>
-            </header>
+            <Header activePage="contact" onBookingSubmit={() => showToast('Visit scheduled successfully! We will contact you shortly.')} />
 
             <section className="page-hero">
                 <div className="container">

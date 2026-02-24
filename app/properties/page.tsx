@@ -3,10 +3,10 @@
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
 import Toast from '../components/Toast';
-import BookingModal from '../components/BookingModal';
+import Header from '../components/Header';
 import {
-    PhoneIcon, MapPinIcon, BedIcon, BathIcon, AreaIcon, HeartIcon, SearchIcon,
-    LinkedInIcon, FacebookIcon, TwitterIcon, InstagramIcon, ArrowRightIcon
+    MapPinIcon, BedIcon, BathIcon, AreaIcon, HeartIcon, SearchIcon,
+    LinkedInIcon, FacebookIcon, TwitterIcon, InstagramIcon
 } from '../components/Icons';
 
 const ALL_PROPERTIES = [
@@ -28,7 +28,6 @@ export default function PropertiesPage() {
     const [favorites, setFavorites] = useState<number[]>([]);
     const [toastVisible, setToastVisible] = useState(false);
     const [toastMsg, setToastMsg] = useState('');
-    const [bookingOpen, setBookingOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
 
     const showToast = useCallback((msg: string) => {
@@ -58,30 +57,7 @@ export default function PropertiesPage() {
     return (
         <>
             <Toast message={toastMsg} isVisible={toastVisible} onClose={() => setToastVisible(false)} />
-            <BookingModal
-                isOpen={bookingOpen}
-                onClose={() => setBookingOpen(false)}
-                onSubmit={() => { setBookingOpen(false); showToast('Visit scheduled successfully!'); }}
-            />
-
-            <header className="header header-dark">
-                <Link href="/" className="header-logo">SANDER HOUSE</Link>
-                <nav className="nav-links">
-                    <Link href="/">Home</Link>
-                    <Link href="/about">About Us</Link>
-                    <Link href="/properties" className="nav-active">Properties</Link>
-                    <Link href="/contact">Contact</Link>
-                </nav>
-                <div className="header-contact">
-                    <div className="header-phone-wrapper" style={{ color: 'var(--text-main)' }}>
-                        <div className="phone-icon">
-                            <PhoneIcon size={12} />
-                        </div>
-                        <span>(00) 123 456 789</span>
-                    </div>
-                    <button className="btn-dark" style={{ borderRadius: '100px' }} onClick={() => setBookingOpen(true)}>BOOK A VISIT</button>
-                </div>
-            </header>
+            <Header activePage="properties" onBookingSubmit={() => showToast('Visit scheduled successfully!')} />
 
             <section className="page-hero">
                 <div className="container">

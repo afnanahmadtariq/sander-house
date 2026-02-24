@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CloseIcon, CalendarIcon, SendIcon } from './Icons';
 
 interface BookingModalProps {
@@ -15,6 +15,15 @@ export default function BookingModal({ isOpen, onClose, onSubmit }: BookingModal
     const [date, setDate] = useState('');
     const [message, setMessage] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.classList.add('modal-open');
+        } else {
+            document.body.classList.remove('modal-open');
+        }
+        return () => document.body.classList.remove('modal-open');
+    }, [isOpen]);
 
     if (!isOpen) return null;
 

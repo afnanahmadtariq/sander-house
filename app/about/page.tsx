@@ -1,18 +1,18 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import Toast from '../components/Toast';
-import BookingModal from '../components/BookingModal';
+import Header, { HeaderRef } from '../components/Header';
 import {
-    PhoneIcon, BuildingIcon, UsersIcon, HomeIcon, CheckIcon, ArrowRightIcon,
-    LinkedInIcon, FacebookIcon, TwitterIcon, InstagramIcon, MailIcon
+    BuildingIcon, UsersIcon, HomeIcon, CheckIcon, ArrowRightIcon,
+    LinkedInIcon, FacebookIcon, TwitterIcon, InstagramIcon
 } from '../components/Icons';
 
 export default function AboutPage() {
     const [toastVisible, setToastVisible] = useState(false);
     const [toastMsg, setToastMsg] = useState('');
-    const [bookingOpen, setBookingOpen] = useState(false);
+    const headerRef = useRef<HeaderRef>(null);
 
     const showToast = useCallback((msg: string) => {
         setToastMsg(msg);
@@ -22,31 +22,7 @@ export default function AboutPage() {
     return (
         <>
             <Toast message={toastMsg} isVisible={toastVisible} onClose={() => setToastVisible(false)} />
-            <BookingModal
-                isOpen={bookingOpen}
-                onClose={() => setBookingOpen(false)}
-                onSubmit={() => { setBookingOpen(false); showToast('Visit scheduled successfully! We will contact you shortly.'); }}
-            />
-
-            {/* Header */}
-            <header className="header header-dark">
-                <Link href="/" className="header-logo">SANDER HOUSE</Link>
-                <nav className="nav-links">
-                    <Link href="/">Home</Link>
-                    <Link href="/about" className="nav-active">About Us</Link>
-                    <Link href="/properties">Properties</Link>
-                    <Link href="/contact">Contact</Link>
-                </nav>
-                <div className="header-contact">
-                    <div className="header-phone-wrapper" style={{ color: 'var(--text-main)' }}>
-                        <div className="phone-icon">
-                            <PhoneIcon size={12} />
-                        </div>
-                        <span>(00) 123 456 789</span>
-                    </div>
-                    <button className="btn-dark" style={{ borderRadius: '100px' }} onClick={() => setBookingOpen(true)}>BOOK A VISIT</button>
-                </div>
-            </header>
+            <Header ref={headerRef} activePage="about" onBookingSubmit={() => showToast('Visit scheduled successfully! We will contact you shortly.')} />
 
             {/* Page Hero */}
             <section className="page-hero">
@@ -142,7 +118,7 @@ export default function AboutPage() {
                 <p style={{ color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '500px', margin: '0 auto 40px' }}>
                     Our expert agents are here to guide you every step of the way.
                 </p>
-                <button className="btn-dark" style={{ borderRadius: '100px', padding: '16px 40px', fontSize: '16px' }} onClick={() => setBookingOpen(true)}>
+                <button className="btn-dark" style={{ borderRadius: '100px', padding: '16px 40px', fontSize: '16px' }} onClick={() => headerRef.current?.openBooking()}>
                     Schedule a Consultation
                 </button>
             </section>

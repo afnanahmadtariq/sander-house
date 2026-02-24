@@ -1122,13 +1122,17 @@ button {
 .modal-content {
   background: var(--white);
   border-radius: 24px;
-  padding: 40px;
+  padding: 32px;
   max-width: 500px;
   width: 100%;
   position: relative;
   animation: modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   max-height: 90vh;
-  overflow-y: auto;
+  overflow: hidden;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 @keyframes modalIn {
